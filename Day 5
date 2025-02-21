@@ -1,0 +1,83 @@
+Concepts I learnt📝:
+CHECKED PROPERTY✅
+TERNARY OPERATOR✅
+SWITCH✅
+STRING METHODS✅
+STRING SLICING✅
+
+Source code(CHECKED PROPERTY):
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <!--to connect the html and css file-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <input type="checkbox" id="mycheckbox"> 
+    <label for="mycheckbox">subscribe</label><br>
+
+    <input type="radio" id="visaBtn" name="card"><!--this name attribute is written in order to be able to select only one of the three radio buttons-->
+    <label for="visaBtn">Visa</label><br>
+
+    <input type="radio" id = "masterCardBtn" name="card">
+    <label for="masterCardBtn">MasterCard</label><br>
+
+    <input type="radio" id="paypalBtn" name="card">
+    <label for="paypalBtn">PayPal</label><br>
+
+    <button type="submit" id="mysubmit">submit</button>
+    <p id ="subResult"></p>
+    <p id="paymentresult"></p>
+    <!--to connect the html and javascript file-->
+    <script src="index.js"></script>
+</body>
+</html>
+
+CSS:
+body{
+    font-family: Verdana;
+    text-align: left;
+}
+
+#mySubmit{
+    font-size: 1em;
+}
+
+JS:
+const mycheckbox = document.getElementById("mycheckbox");
+const visaBtn = document.getElementById("visaBtn");
+const masterCardBtn = document.getElementById("masterCardBtn");
+const paypalBtn = document.getElementById("paypalBtn");
+const mysubmit = document.getElementById("mysubmit");
+const subResult = document.getElementById("subResult");
+const paymentresult = document.getElementById("paymentresult");
+
+mysubmit.onclick = function(){
+    if(mycheckbox.checked){
+        subResult.textContent = `You are subscribed`;
+    }
+    else{
+        subResult.textContent = `You aren't subscribed`;
+    }
+
+    if(visaBtn.checked){
+        paymentresult.textContent = `you are paying with Visa`;
+
+    }
+    else if(masterCardBtn.checked){
+        paymentresult.textContent = `You are paying with mastercard`;
+    }
+
+    else if(paypalBtn.checked){
+        paymentresult.textContent = `you are paying with paypal`;
+    }
+    else{
+        paymentresult.textContent = `You haven't selected a payment mode`;
+    }
+}
+
